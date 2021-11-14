@@ -25,13 +25,8 @@ else:
     for i in range(0, len(list_email_receiver)):
         X = list_email_receiver[i]
         email_receiver = random.choice(L2)
-        if len(L3) != 0:
-            while X == email_receiver:
-                email_receiver = random.choice(L2)
-        else:
-            print("Il faut recommencer")
-            break
-        indexL2 = L2.index(email_receiver)
+        while X == email_receiver:
+            email_receiver = random.choice(L2)
         name = L3[L2.index(email_receiver)]
         #print(name)
         L2.remove(email_receiver)
