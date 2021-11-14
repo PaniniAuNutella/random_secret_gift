@@ -10,9 +10,9 @@ context = ssl.create_default_context()
 email_sender = "..."  # Mail de l'expéditeur
 email_password = "..."  # MDP de l'expéditeur
 
-list_email_receiver = ["ktz.kevin30@gmail.com", "diane.sorba@hotmail.fr", "noemie.bicheron@gmail.com", "Florian.touraine@cegetel.net", "hippolytecosserat@gmail.com", "gregoire.communeau@gmail.com", "quentin.arnauld@gmail.com", "telma.vaz@gmail.com", "pauline.cassan1@gmail.com", "Nicolas@dassas-henny.com", "lorrainebappel75@gmail.com", "heloisedelafayolle@gmail.com", "tailliezclaire@gmail.com", "blanchebetolaud@gmail.com", "clement.legeai@gmail.com", "victoire.savier@free.fr"]  # Liste des mails
-L2 = ["ktz.kevin30@gmail.com", "diane.sorba@hotmail.fr", "noemie.bicheron@gmail.com", "Florian.touraine@cegetel.net", "hippolytecosserat@gmail.com", "gregoire.communeau@gmail.com", "quentin.arnauld@gmail.com", "telma.vaz@gmail.com", "pauline.cassan1@gmail.com", "Nicolas@dassas-henny.com", "lorrainebappel75@gmail.com", "heloisedelafayolle@gmail.com", "tailliezclaire@gmail.com", "blanchebetolaud@gmail.com", "clement.legeai@gmail.com", "victoire.savier@free.fr"]  # Copie liste des mails
-L3 = ["Kevin", "Diane", "Noemie", "Florian", "Hippolyte", "Gregoire", "Quentin", "Telma", "Pauline", "Nicolas", "Lorraine", "Heloise", "Claire", "Blanche", "Clement", "Victoire"] # Liste des prénoms dans le bon ordre
+list_email_receiver = ["mail_1@mail.com", "mail_2@mail.com", "mail_3@mail.com" ...]  # Liste des mails
+L2 = ["mail_1@mail.com", "mail_2@mail.com", "mail_3@mail.com" ...] # Copie de la liste des mails
+L3 = ["Prénom_1", "Prénom_2", "Prénom_3" ...] # Liste des prénoms dans le même ordre que L2
 L4 = [] # Liste vide de vérification
 
 print("Il y a", len(list_email_receiver), "personnes dans la liste 1 et", len(L2), "personnes dans la liste 2")
@@ -38,8 +38,8 @@ else:
         L3.remove(name)
         print("? obtient", email_receiver) # Vérification si le mail est bien parvenu à toute la liste
         with smtplib.SMTP_SSL(smtp_address, smtp_port, context=context) as server: # Connexion au Host Gmail
-            server.login(email_sender, email_password)
-            server.sendmail(email_sender, X, "Bravo, tu dois maintenant trouver un cadeau pour "+name + "\n Bonne chance :)")
+            server.login(email_sender, email_password) # Connexion au mail de l'expéditeur
+            server.sendmail(email_sender, X, "Bravo, tu dois maintenant trouver un cadeau pour "+name + "\n Bonne chance :)") # Contenu du mail
             print("E-mail envoyé !\n")
         n += 1
     print("\n",list_email_receiver,"\n", L2,"\n", L3)
